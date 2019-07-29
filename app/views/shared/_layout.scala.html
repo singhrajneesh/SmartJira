@@ -1,0 +1,46 @@
+@*
+* This template is called from the `index` template. This template
+* handles the rendering of the page header and body tags. It takes
+* two arguments, a `String` for the title of the page and an `Html`
+* object to insert into the body of the page.
+*@
+@(title: String, scripts: Html = Html(""))(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>@title</title>
+        <!--<link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("../../../public/images/favicon.png")">-->
+
+        @views.html.shared._styles()
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="color:lightseagreen;" >@title &lt;/&gt;</h2>
+                </div>
+                <div class="col-md-12">
+                    <hr/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                    </ul>
+                </div>
+                <div class="col-md-12">@content</div>
+            </div>
+        </div>
+
+        @views.html.shared._scripts()
+
+        @scripts
+
+    </body>
+
+
+</html>
